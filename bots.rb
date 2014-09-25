@@ -67,12 +67,16 @@ Ebooks::Bot.new("ChimiChangaBot") do |bot|
     bot.delay(rand(3600)) do
       r = rand
 
-      if r < 1.0/3.0 then
-        bot.tweet "Chimi Cherry?"
-      elsif r < 2.0/3.0 then
-        bot.tweet "Cherry Changa?"
-      else
-        bot.tweet "Chimi Cherry, or Cherry Changa?"
+      begin
+        if r < 1.0/3.0 then
+          bot.tweet "Chimi Cherry?"
+        elsif r < 2.0/3.0 then
+          bot.tweet "Cherry Changa?"
+        else
+          bot.tweet "Chimi Cherry, or Cherry Changa?"
+        end
+      rescue error
+        bot.log error        
       end
     end
   end
