@@ -61,11 +61,6 @@ Ebooks::Bot.new("ChimiChangaBot") do |bot|
     # bot.reply(tweet, meta[:reply_prefix] + "oh hullo")
   end
 
-  bot.on_timeline do |tweet, meta|
-    # Reply to a tweet in the bot's timeline
-    # bot.reply(tweet, meta[:reply_prefix] + "nice tweet")
-  end
-
   bot.scheduler.every '24h' do
     # Tweet something every 24 hours
     # See https://github.com/jmettraux/rufus-scheduler
