@@ -61,9 +61,19 @@ Ebooks::Bot.new("ChimiChangaBot") do |bot|
     # bot.reply(tweet, meta[:reply_prefix] + "oh hullo")
   end
 
-  bot.scheduler.every '24h' do
-    # Tweet something every 24 hours
-    # See https://github.com/jmettraux/rufus-scheduler
-    # bot.tweet("hi")
+  bot.scheduler.every '1h' do
+    bot.log "Will tweet some time this hour."
+
+    bot.delay(rand(3600)) do
+      r = rand
+
+      if r < 1.0/3.0 then
+        bot.tweet "Chimi Cherry?"
+      else if r < 2.0/3.0 then
+        bot.tweet "Cherry Changa?"
+      else
+        bot.tweet "Chimi Cherry, or Cherry Changa?"
+      end
+    end
   end
 end
