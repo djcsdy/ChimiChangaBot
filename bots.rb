@@ -8,7 +8,7 @@ config_file_name = "bots.conf"
 unless File.exist? config_file_name then
   config_file = File.open(config_file_name, "w")
   config_file.write <<-END.gsub(/^[ \t]*/, "")
-    [NotAllBot]
+    [ChimiChangaBot]
 
     # Consumer details come from registering an app at https://dev.twitter.com/
     # OAuth details can be fetched with https://github.com/marcel/twurl
@@ -41,11 +41,11 @@ rescue
 end
 
 
-Ebooks::Bot.new("NotAllBot") do |bot|
-  bot.consumer_key = config["NotAllBot"]["consumer_key"]
-  bot.consumer_secret = config["NotAllBot"]["consumer_secret"]
-  bot.oauth_token = config["NotAllBot"]["oauth_token"]
-  bot.oauth_token_secret = config["NotAllBot"]["oauth_token_secret"]
+Ebooks::Bot.new("ChimiChangaBot") do |bot|
+  bot.consumer_key = config["ChimiChangaBot"]["consumer_key"]
+  bot.consumer_secret = config["ChimiChangaBot"]["consumer_secret"]
+  bot.oauth_token = config["ChimiChangaBot"]["oauth_token"]
+  bot.oauth_token_secret = config["ChimiChangaBot"]["oauth_token_secret"]
   
   raise "Invalid consumer_key" unless bot.consumer_key
   raise "Invalid consumer_secret" unless bot.consumer_secret
