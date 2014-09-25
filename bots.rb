@@ -69,7 +69,7 @@ Ebooks::Bot.new("ChimiChangaBot") do |bot|
 
       if r < 1.0/3.0 then
         bot.tweet "Chimi Cherry?"
-      else if r < 2.0/3.0 then
+      elsif r < 2.0/3.0 then
         bot.tweet "Cherry Changa?"
       else
         bot.tweet "Chimi Cherry, or Cherry Changa?"
