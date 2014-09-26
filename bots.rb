@@ -64,16 +64,41 @@ Ebooks::Bot.new("ChimiChangaBot") do |bot|
   bot.scheduler.every '1h' do
     bot.log "Will tweet some time this hour."
 
-    bot.delay(rand(3600)) do
-      r = rand
+    bot.delay(rand(3540)) do
+      r = rand * 4
 
       begin
-        if r < 1.0/3.0 then
+        if r < 1 then
           bot.tweet "Chimi Cherry?"
-        elsif r < 2.0/3.0 then
+        elsif r < 2 then
           bot.tweet "Cherry Changa?"
-        else
+        elsif r < 3 then
           bot.tweet "Chimi Cherry, or Cherry Changa?"
+        else
+          bot.tweet "Pickle barrel"
+          bot.delay(2 + rand(5)) do
+            begin
+              bot.tweet "Kumquat"
+
+              bot.delay(2 + rand(5)) do
+                begin
+                  bot.tweet "Pickle barrel"
+
+                  bot.delay(2 + rand(5)) do
+                    begin
+                      bot.tweet "Kumquat"
+                    rescue
+                      bot.log $!
+                    end
+                  end
+                rescue
+                  bot.log $!
+                end
+              end
+            rescue
+              bot.log $!
+            end
+          end
         end
       rescue
         bot.log $!
