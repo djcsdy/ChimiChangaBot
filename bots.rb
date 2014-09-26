@@ -82,11 +82,11 @@ Ebooks::Bot.new("ChimiChangaBot") do |bot|
 
               bot.delay(2 + rand(5)) do
                 begin
-                  bot.tweet "Pickle barrel"
+                  bot.tweet "Pickle barrel!"
 
                   bot.delay(2 + rand(5)) do
                     begin
-                      bot.tweet "Kumquat"
+                      bot.tweet "Kumquat!"
                     rescue
                       bot.log $!
                     end
