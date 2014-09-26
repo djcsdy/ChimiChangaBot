@@ -75,8 +75,8 @@ Ebooks::Bot.new("ChimiChangaBot") do |bot|
         else
           bot.tweet "Chimi Cherry, or Cherry Changa?"
         end
-      rescue error
-        bot.log error        
+      rescue
+        bot.log $!
       end
     end
   end
